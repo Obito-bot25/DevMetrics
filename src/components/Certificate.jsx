@@ -1,12 +1,78 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState, useEffect, useRef, useImperativeHandle } from 'react';
+
+const BASE_WIDTH = 860;
 
 const Certificate = forwardRef(({ resultData }, ref) => {
+  const wrapperRef = useRef(null);
+  const sheetRef = useRef(null);
+  const [scale, setScale] = useState(1);
+  const [scaledHeight, setScaledHeight] = useState('auto');
+
+  useImperativeHandle(ref, () => sheetRef.current);
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (!wrapperRef.current || !sheetRef.current) return;
+      const containerWidth = wrapperRef.current.clientWidth;
+      if (containerWidth > 0 && containerWidth < BASE_WIDTH) {
+        const nextScale = containerWidth / BASE_WIDTH;
+        setScale(nextScale);
+        setScaledHeight(`${Math.ceil(sheetRef.current.offsetHeight * nextScale)}px`);
+      } else {
+        setScale(1);
+        setScaledHeight('auto');
+      }
+    };
+
+    updateDimensions();
+
+    let ro = null;
+    if (typeof ResizeObserver !== 'undefined' && wrapperRef.current) {
+      ro = new ResizeObserver(() => {
+        updateDimensions();
+      });
+      ro.observe(wrapperRef.current);
+    }
+
+    window.addEventListener('resize', updateDimensions);
+
+    if (typeof document !== 'undefined' && document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(updateDimensions);
+    }
+
+    return () => {
+      if (ro) ro.disconnect();
+      window.removeEventListener('resize', updateDimensions);
+    };
+  }, []);
+
   return (
-    <div className="certificate-cyber-wrapper">
-      <div className="certificate-sheet" ref={ref} id="certificate-node">
-        
-        {/* Architectural Wireframe Outer Grid */}
-        <div className="sheet-outer-border">
+    <div 
+      className="certificate-cyber-wrapper" 
+      ref={wrapperRef}
+      style={{
+        height: scaledHeight,
+        overflow: 'hidden',
+        width: '100%',
+        maxWidth: `${BASE_WIDTH}px`,
+        position: 'relative',
+      }}
+    >
+      <div 
+        className="certificate-scaler-frame"
+        style={{
+          width: `${BASE_WIDTH}px`,
+          transform: scale < 1 ? `scale(${scale})` : 'none',
+          transformOrigin: 'top left',
+          position: scale < 1 ? 'absolute' : 'relative',
+          top: 0,
+          left: 0,
+        }}
+      >
+        <div className="certificate-sheet" ref={sheetRef} id="certificate-node">
+          
+          {/* Architectural Wireframe Outer Grid */}
+          <div className="sheet-outer-border">
           
           {/* Corner Crosshairs */}
           <span className="cert-crosshair ch-tl">+</span>
@@ -143,6 +209,7 @@ const Certificate = forwardRef(({ resultData }, ref) => {
         </div>
 
       </div>
+      </div>
 
       <style>{`
         .certificate-cyber-wrapper {
@@ -152,9 +219,14 @@ const Certificate = forwardRef(({ resultData }, ref) => {
           padding: 10px 0;
         }
 
+        .certificate-scaler-frame {
+          display: flex;
+          justify-content: center;
+        }
+
         .certificate-sheet {
           width: 860px;
-          max-width: 100%;
+          min-width: 860px;
           background: #ffffff;
           color: var(--c-black);
           position: relative;
@@ -466,46 +538,6 @@ const Certificate = forwardRef(({ resultData }, ref) => {
           line-height: 1.4;
           border-top: 1px dashed var(--c-border);
           padding-top: 10px;
-        }
-
-        @media (max-width: 640px) {
-          .sheet-outer-border {
-            padding: 20px 14px;
-          }
-          .cert-top-meta {
-            flex-direction: column;
-            gap: 6px;
-            align-items: flex-start;
-          }
-          .cert-wireframe-grid {
-            grid-template-columns: 1fr;
-          }
-          .cert-grid-cell.cell-span-2 {
-            grid-column: span 1;
-          }
-          .cert-bottom-row {
-            flex-direction: column;
-            gap: 16px;
-          }
-          .cert-sign-col, .cert-qr-col {
-            align-items: center;
-            text-align: center;
-            width: 100%;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .sheet-outer-border {
-            padding: 16px 10px;
-          }
-          .cert-recipient-display {
-            font-size: clamp(1.5rem, 6vw, 2.2rem);
-            padding: 0 8px 4px;
-          }
-          .cert-main-cyber-title {
-            font-size: clamp(1.8rem, 7.5vw, 2.5rem);
-          }
-        }
         }
       `}</style>
     </div>

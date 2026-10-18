@@ -212,11 +212,13 @@ export default function SurpriseReveal({ resultData, onProceedToCertificate }) {
 
         .punchline-cyber-title {
           font-family: var(--font-display);
-          font-size: clamp(3rem, 7vw, 5.8rem);
+          font-size: clamp(2.1rem, 7.5vw, 5.8rem);
           color: var(--c-black);
           line-height: 0.95;
           margin-bottom: 16px;
           letter-spacing: 0.02em;
+          word-break: break-word;
+          overflow-wrap: break-word;
         }
 
         .cuck-title-purple {
@@ -238,6 +240,8 @@ export default function SurpriseReveal({ resultData, onProceedToCertificate }) {
           max-width: 600px;
           margin: 0 auto;
           line-height: 1.5;
+          word-break: break-word;
+          overflow-wrap: break-word;
         }
 
         /* Metrics grid */
@@ -257,6 +261,7 @@ export default function SurpriseReveal({ resultData, onProceedToCertificate }) {
           flex-direction: column;
           align-items: flex-start;
           text-align: left;
+          min-width: 0;
         }
 
         .tel-card-label {
@@ -273,6 +278,8 @@ export default function SurpriseReveal({ resultData, onProceedToCertificate }) {
           font-size: 1.15rem;
           font-weight: 700;
           color: var(--c-black);
+          word-break: break-word;
+          overflow-wrap: break-word;
         }
 
         .text-purple {
@@ -295,11 +302,47 @@ export default function SurpriseReveal({ resultData, onProceedToCertificate }) {
         }
 
         @media (max-width: 640px) {
+          .cyber-reveal-page {
+            padding: 0 12px;
+            margin: 24px auto 50px;
+          }
           .reveal-telemetry-grid {
             grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 24px;
           }
           .cyber-punchline-card {
-            padding: 24px 18px;
+            padding: 22px 14px;
+            box-shadow: 3px 3px 0px var(--c-black);
+            margin-bottom: 24px;
+          }
+          .claim-dossier-btn {
+            width: 100%;
+            padding: 16px 14px;
+            font-size: clamp(0.78rem, 3.5vw, 0.95rem);
+            justify-content: center;
+            text-align: center;
+          }
+          .deadpan-cyber-box {
+            padding: 28px 16px;
+          }
+          .deadpan-title {
+            font-size: clamp(2rem, 5vw, 3.4rem);
+          }
+        }
+
+        @media (max-width: 380px) {
+          .cyber-reveal-page {
+            padding: 0 8px;
+          }
+          .cyber-punchline-card {
+            padding: 18px 10px;
+          }
+          .tel-card-val {
+            font-size: 1rem;
+          }
+          .punchline-roast-quote {
+            font-size: 0.92rem;
           }
         }
       `}</style>

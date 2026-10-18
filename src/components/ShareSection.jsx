@@ -168,7 +168,11 @@ export default function ShareSection({ certificateRef, resultData, onReset }) {
         .share-act-btn {
           flex: 1;
           max-width: 380px;
-          padding: 16px 24px;
+          padding: 16px 20px;
+          font-size: clamp(0.75rem, 3.2vw, 0.88rem);
+          white-space: normal;
+          text-align: center;
+          justify-content: center;
         }
 
         .cyber-social-row {
@@ -192,6 +196,7 @@ export default function ShareSection({ certificateRef, resultData, onReset }) {
         .social-links-grid {
           display: flex;
           gap: 12px;
+          flex-wrap: wrap;
         }
 
         .social-cyber-link {
@@ -213,19 +218,25 @@ export default function ShareSection({ certificateRef, resultData, onReset }) {
 
         .reset-audit-box {
           margin-top: 8px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
         }
 
         .reset-text-btn {
           display: inline-flex;
           align-items: center;
+          justify-content: center;
+          text-align: center;
           gap: 6px;
           background: transparent;
           border: none;
           font-family: var(--font-mono);
-          font-size: 0.78rem;
+          font-size: clamp(0.7rem, 3vw, 0.78rem);
           font-weight: 700;
           color: var(--c-text-muted);
           cursor: pointer;
+          line-height: 1.4;
         }
 
         .reset-text-btn:hover {
@@ -242,20 +253,35 @@ export default function ShareSection({ certificateRef, resultData, onReset }) {
           padding: 8px 16px;
           font-family: var(--font-mono);
           font-size: 0.75rem;
+          max-width: 100%;
+          word-break: break-word;
         }
 
         @media (max-width: 640px) {
           .share-btn-row {
             flex-direction: column;
             width: 100%;
+            gap: 12px;
           }
           .share-act-btn {
             max-width: 100%;
+            padding: 14px 12px;
           }
           .cyber-social-row {
             flex-direction: column;
             gap: 12px;
             align-items: center;
+            padding: 12px 14px;
+            text-align: center;
+          }
+          .social-links-grid {
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+          }
+          .social-cyber-link {
+            font-size: 0.72rem;
+            padding: 6px 8px;
           }
         }
       `}</style>

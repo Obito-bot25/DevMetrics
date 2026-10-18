@@ -558,6 +558,8 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
 
         .cyber-text-input {
           flex: 1;
+          min-width: 0;
+          width: 100%;
           border: none;
           background: transparent;
           padding: 14px 0;
@@ -734,6 +736,7 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           cursor: pointer;
           transition: all 0.15s;
           user-select: none;
+          gap: 10px;
         }
 
         .dropdown-trigger-input:hover {
@@ -752,6 +755,8 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           align-items: center;
           gap: 8px;
           flex-wrap: wrap;
+          flex: 1;
+          min-width: 0;
         }
 
         .autofill-indicator {
@@ -768,15 +773,20 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           font-size: 0.9rem;
           font-weight: 700;
           color: var(--c-black);
+          overflow-wrap: break-word;
+          word-break: break-word;
         }
 
         .trigger-sub {
           font-size: 0.8rem;
           color: var(--c-text-muted);
+          overflow-wrap: break-word;
+          word-break: break-word;
         }
 
         .trigger-arrow {
           color: var(--c-text-muted);
+          flex-shrink: 0;
         }
 
         /* Popover */
@@ -790,6 +800,8 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
           z-index: 50;
           margin-top: 4px;
+          max-height: 380px;
+          overflow-y: auto;
         }
 
         .dropdown-popover-header {
@@ -829,11 +841,14 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           font-size: 0.85rem;
           color: var(--c-purple);
           margin-top: 1px;
+          flex-shrink: 0;
         }
 
         .opt-item-text {
           display: flex;
           flex-direction: column;
+          flex: 1;
+          min-width: 0;
         }
 
         .opt-item-label {
@@ -841,18 +856,25 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           font-weight: 700;
           font-size: 0.85rem;
           color: var(--c-black);
+          overflow-wrap: break-word;
+          word-break: break-word;
         }
 
         .opt-item-desc {
           font-size: 0.78rem;
           color: var(--c-text-secondary);
+          overflow-wrap: break-word;
+          word-break: break-word;
         }
 
         .flow-submit-btn {
           width: 100%;
           margin-top: 16px;
           padding: 16px;
-          font-size: 0.92rem;
+          font-size: clamp(0.78rem, 3.2vw, 0.92rem);
+          white-space: normal;
+          text-align: center;
+          justify-content: center;
         }
 
         .submit-final-btn {
@@ -863,15 +885,58 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           background: var(--c-purple);
         }
 
-        @media (max-width: 768px) {
-          .cyber-audit-card {
-            padding: 24px 18px;
+        @media (max-width: 900px) {
+          .tools-cyber-grid {
+            grid-template-columns: repeat(2, 1fr);
           }
+        }
+
+        @media (max-width: 680px) {
           .exp-tier-grid {
             grid-template-columns: 1fr;
           }
+        }
+
+        @media (max-width: 600px) {
+          .cyber-flow-page {
+            padding: 16px 12px 60px;
+          }
+          .cyber-audit-card {
+            padding: 22px 14px;
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.08);
+          }
+          .audit-title {
+            font-size: clamp(1.7rem, 5vw, 2.4rem);
+            word-break: break-word;
+          }
           .tools-cyber-grid {
             grid-template-columns: 1fr;
+            margin-bottom: 24px;
+          }
+          .dropdown-trigger-input {
+            padding: 12px 14px;
+          }
+          .flow-submit-btn {
+            padding: 14px 10px;
+          }
+        }
+
+        @media (max-width: 380px) {
+          .cyber-flow-page {
+            padding: 12px 6px 50px;
+          }
+          .cyber-audit-card {
+            padding: 18px 10px;
+          }
+          .flow-top-bar {
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+          }
+          .flow-back-btn {
+            font-size: 0.72rem;
+          }
+          .flow-step-tag {
+            font-size: 0.7rem;
           }
         }
       `}</style>

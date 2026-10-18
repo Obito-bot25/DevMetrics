@@ -58,13 +58,15 @@ export default function Navbar({ onReset, onStart }) {
           className="audio-cyber-btn"
           onClick={toggleSound}
           title={muted ? 'Enable sound effects' : 'Mute sound effects'}
+          aria-label={muted ? 'Enable sound effects' : 'Mute sound effects'}
         >
           {muted ? <VolumeX size={14} /> : <Volume2 size={14} color="#7c3aed" />}
-          <span>{muted ? 'MUTED' : 'AUDIO: ON'}</span>
+          <span className="audio-btn-label">{muted ? 'MUTED' : 'AUDIO: ON'}</span>
         </button>
 
         <button className="btn-cyber-black nav-cta-btn" onClick={onStart}>
-          <span>CLAIM CERTIFICATE</span>
+          <span className="cta-full">CLAIM CERTIFICATE</span>
+          <span className="cta-short">CLAIM</span>
           <ArrowUpRight size={16} />
         </button>
       </div>
@@ -195,6 +197,10 @@ export default function Navbar({ onReset, onStart }) {
           font-size: 0.78rem;
         }
 
+        .cta-short {
+          display: none;
+        }
+
         @media (max-width: 900px) {
           .nav-menu {
             display: none;
@@ -204,6 +210,55 @@ export default function Navbar({ onReset, onStart }) {
           }
           .cyber-navbar {
             padding: 14px 20px;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .cyber-navbar {
+            padding: 12px 14px;
+          }
+          .nav-left {
+            gap: 12px;
+            min-width: 0;
+          }
+          .nav-right {
+            gap: 8px;
+            min-width: 0;
+          }
+          .brand-logo-text {
+            font-size: 1.35rem;
+          }
+          .pixel-mark {
+            width: 22px;
+            height: 22px;
+            font-size: 0.85rem;
+          }
+          .audio-cyber-btn {
+            padding: 7px 10px;
+            font-size: 0.68rem;
+          }
+          .nav-cta-btn {
+            padding: 8px 12px;
+            font-size: 0.72rem;
+            letter-spacing: 0.02em;
+          }
+        }
+
+        @media (max-width: 440px) {
+          .audio-btn-label {
+            display: none;
+          }
+          .audio-cyber-btn {
+            padding: 7px 8px;
+          }
+          .cta-full {
+            display: none;
+          }
+          .cta-short {
+            display: inline;
+          }
+          .brand-logo-text {
+            font-size: 1.25rem;
           }
         }
       `}</style>

@@ -335,13 +335,17 @@ export default function AnalysisScreen({ onComplete }) {
 
         .stream-text {
           flex: 1;
+          min-width: 0;
           color: var(--c-text-secondary);
+          overflow-wrap: break-word;
+          word-break: break-word;
         }
 
         .stream-done {
           color: #10b981;
           font-weight: 700;
           font-size: 0.65rem;
+          flex-shrink: 0;
         }
 
         .stream-cursor-row {
@@ -358,6 +362,41 @@ export default function AnalysisScreen({ onComplete }) {
         @keyframes blink {
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }
+        }
+
+        @media (max-width: 640px) {
+          .cyber-analysis-page {
+            padding: 0 12px;
+            margin: 20px auto 40px;
+          }
+          .analysis-box {
+            padding: 22px 14px;
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.08);
+          }
+          .status-current-title {
+            font-size: 0.95rem;
+            word-break: break-word;
+          }
+          .cyber-terminal-stream {
+            padding: 10px 12px;
+          }
+        }
+
+        @media (max-width: 380px) {
+          .cyber-analysis-page {
+            padding: 0 8px;
+          }
+          .analysis-box {
+            padding: 18px 10px;
+          }
+          .wireframe-scanner-box {
+            width: 120px;
+            height: 120px;
+          }
+          .circle-outer, .scanner-sweep-needle {
+            width: 104px;
+            height: 104px;
+          }
         }
       `}</style>
     </div>

@@ -244,6 +244,9 @@ export default function App() {
             align-items: flex-start;
             gap: 12px;
           }
+          .trusted-label {
+            white-space: normal;
+          }
           .cyber-bottom-status-bar {
             flex-direction: column;
             gap: 8px;
@@ -253,9 +256,34 @@ export default function App() {
         }
 
         @media (max-width: 640px) {
+          .trusted-builders-row {
+            padding: 14px 14px;
+          }
+          .tech-badge-list {
+            gap: 10px 16px;
+          }
+          .tech-logo {
+            font-size: 0.75rem;
+          }
+          .cyber-bottom-status-bar {
+            padding: 12px 10px;
+            font-size: 0.7rem;
+          }
+          .cell-right {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+          }
           .cyber-cert-page {
-            padding: 0 14px;
-            margin: 20px auto 60px;
+            padding: 0 8px;
+            margin: 16px auto 40px;
+          }
+          .cert-page-top-meta {
+            margin-bottom: 16px;
+          }
+          .cert-page-title {
+            font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+            word-break: break-word;
           }
         }
       `}</style>

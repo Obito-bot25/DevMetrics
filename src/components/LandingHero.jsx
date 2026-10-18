@@ -326,13 +326,14 @@ export default function LandingHero({ onStart }) {
 
         .hero-cyber-headline {
           font-family: var(--font-display);
-          font-size: clamp(2.8rem, 6.2vw, 5.8rem);
+          font-size: clamp(2.1rem, 6.2vw, 5.8rem);
           font-weight: 400;
           line-height: 0.95;
           letter-spacing: 0.02em;
           color: var(--c-black);
           margin-bottom: 18px;
           word-break: break-word;
+          overflow-wrap: break-word;
         }
 
         .headline-accent {
@@ -341,20 +342,23 @@ export default function LandingHero({ onStart }) {
 
         .hero-tagline {
           font-family: var(--font-mono);
-          font-size: clamp(0.75rem, 1.3vw, 0.92rem);
+          font-size: clamp(0.72rem, 1.3vw, 0.92rem);
           font-weight: 700;
           color: var(--c-purple);
-          letter-spacing: 0.1em;
+          letter-spacing: 0.08em;
           margin-bottom: 20px;
+          overflow-wrap: break-word;
+          word-break: break-word;
         }
 
         .hero-cyber-description {
           font-family: var(--font-sans);
-          font-size: clamp(0.9rem, 1.15vw, 1.02rem);
+          font-size: clamp(0.88rem, 1.15vw, 1.02rem);
           color: var(--c-text-secondary);
           line-height: 1.6;
           max-width: 540px;
           margin-bottom: 32px;
+          overflow-wrap: break-word;
         }
 
         .hero-cyber-description strong {
@@ -756,15 +760,19 @@ export default function LandingHero({ onStart }) {
           }
         }
 
-        @media (max-width: 640px) {
-          .cyber-hero-page {
-            padding: 0 14px;
-          }
+        @media (max-width: 768px) {
           .left-vertical-rail {
             display: none;
           }
+        }
+
+        @media (max-width: 640px) {
+          .cyber-hero-page {
+            padding: 0 12px;
+          }
           .hero-main-block {
-            padding: 24px 8px;
+            padding: 24px 6px;
+            gap: 24px;
           }
           .hero-action-row {
             flex-direction: column;
@@ -774,12 +782,49 @@ export default function LandingHero({ onStart }) {
           .hero-cta, .hero-secondary {
             width: 100%;
             text-align: center;
+            justify-content: center;
+          }
+          .hero-micro-text {
+            gap: 6px 8px;
+            font-size: 0.68rem;
           }
           .principles-grid {
             grid-template-columns: 1fr;
           }
           .telemetry-col {
-            padding: 24px 16px;
+            padding: 24px 14px;
+          }
+          .hero-right-visual {
+            padding: 18px 14px;
+          }
+        }
+
+        @media (max-width: 400px) {
+          .cyber-hero-page {
+            padding: 0 8px;
+          }
+          .hero-main-block {
+            padding: 18px 4px;
+          }
+          .isometric-wireframe-box {
+            height: 230px;
+          }
+          .wireframe-cube {
+            transform: scale(0.85) rotateX(-22deg) rotateY(38deg);
+          }
+          .coordinate-tag {
+            bottom: 6px;
+            right: 6px;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+          }
+          .metric-bar-wrapper {
+            margin: 0 8px;
+          }
+          .all-operational-banner {
+            flex-wrap: wrap;
+            gap: 6px;
+            font-size: 0.7rem;
           }
         }
       `}</style>
