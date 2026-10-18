@@ -7,7 +7,9 @@ export default function ShareSection({ certificateRef, resultData, onReset }) {
   const [copied, setCopied] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : 'https://devmetrics.lab';
+  const currentUrl = typeof window !== 'undefined' && !window.location.hostname.includes('localhost') && !window.location.hostname.includes('127.0.0.1')
+    ? window.location.href
+    : 'https://dev-metrics-eta.vercel.app';
   const shareText = `I took the 2026 Developer Independence Assessment and got completely exposed 💀 Find out how cooked you are:`;
 
   const handleDownloadImage = async () => {

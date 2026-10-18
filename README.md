@@ -1,5 +1,10 @@
 # DevMetrics · 2026 Developer Independence Assessment
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-dev--metrics--eta.vercel.app-7c3aed?style=for-the-badge&logo=vercel&logoColor=white)](https://dev-metrics-eta.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-0A0A0A?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Obito-bot25/DevMetrics)
+
+> 🚀 **Live Demo**: [https://dev-metrics-eta.vercel.app](https://dev-metrics-eta.vercel.app)
+
 An architectural cyber-brutalist web application designed to evaluate a developer's autonomy quotient vs. AI dependency. Begins as a serious, authoritative software engineering benchmark and concludes with an unexpected satirical **Certified Cuck Coder** dossier.
 
 ## Features
