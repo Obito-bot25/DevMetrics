@@ -1,0 +1,285 @@
+:root {
+  --c-bg: #f7f7f9;
+  --c-surface: #ffffff;
+  --c-surface-subtle: #f1f2f6;
+  --c-black: #0a0a0a;
+  --c-purple: #7c3aed;
+  --c-purple-dark: #6d28d9;
+  --c-purple-light: #ede9fe;
+  --c-purple-bg: rgba(124, 58, 237, 0.08);
+  --c-lime: #e4ff1a;
+  --c-lime-border: #c8e600;
+  --c-red: #ef4444;
+  --c-border: #e2e4ea;
+  --c-border-dark: #0a0a0a;
+  --c-text-primary: #0a0a0a;
+  --c-text-secondary: #475569;
+  --c-text-muted: #64748b;
+  --c-text-light: #94a3b8;
+
+  --font-display: 'Bebas Neue', -apple-system, sans-serif;
+  --font-mono: 'Space Mono', 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessibility Focus States */
+:focus-visible {
+  outline: 2px solid var(--c-purple);
+  outline-offset: 2px;
+}
+
+/* Subtle architectural grid lines */
+.cyber-grid-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Diagonal hatch pattern */
+.hatch-pattern {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(0, 0, 0, 0.12),
+    rgba(0, 0, 0, 0.12) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+}
+
+.hatch-pattern-purple {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(124, 58, 237, 0.2),
+    rgba(124, 58, 237, 0.2) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+}
+
+/* Container */
+.cyber-app-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Section number tag */
+.sec-tag {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--c-purple);
+  letter-spacing: 0.05em;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+/* Crosshair markers */
+.crosshair {
+  color: var(--c-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1;
+  user-select: none;
+}
+
+/* Cyber Buttons */
+.btn-cyber-black {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--c-black);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 14px 28px;
+  border: 1px solid var(--c-black);
+  border-radius: var(--radius-none);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.btn-cyber-black:hover {
+  background: var(--c-purple);
+  border-color: var(--c-purple);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+}
+
+.btn-cyber-black:active {
+  transform: translateY(1px);
+}
+
+.btn-cyber-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--c-black);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 13px 24px;
+  border: 1px solid var(--c-black);
+  border-radius: var(--radius-none);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.btn-cyber-outline:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: var(--c-purple);
+  color: var(--c-purple);
+}
+
+.btn-cyber-lime {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--c-lime);
+  color: var(--c-black);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 14px 28px;
+  border: 1px solid var(--c-black);
+  border-radius: var(--radius-none);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.btn-cyber-lime:hover {
+  background: #d4f000;
+  transform: translateY(-1px);
+  box-shadow: 2px 2px 0px #0a0a0a;
+}
+
+/* Badges & Tags */
+.cyber-sticky-tag {
+  background: var(--c-lime);
+  color: var(--c-black);
+  border: 1px solid var(--c-black);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+.cyber-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid var(--c-border);
+  background: var(--c-surface);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.cyber-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--c-purple);
+}
+
+.cyber-dot.lime {
+  background-color: var(--c-black);
+  box-shadow: 0 0 6px var(--c-lime);
+}
+
+.cyber-dot.red {
+  background-color: var(--c-red);
+}
+
+/* Animations */
+@keyframes cyberFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-cyber-fade {
+  animation: cyberFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--c-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Prefers-reduced-motion: Respect user accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-cyber-fade {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
