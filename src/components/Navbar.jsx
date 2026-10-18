@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Volume2, VolumeX, ArrowUpRight } from 'lucide-react';
+import { Volume2, VolumeX, ArrowUpRight, Sun, Moon } from 'lucide-react';
 import { setMuted, getMuted } from '../utils/audio';
+import { useTheme } from '../utils/theme';
 
 export default function Navbar({ onReset, onStart }) {
   const [muted, setMutedState] = useState(getMuted());
   const [timeStr, setTimeStr] = useState('23:47:12 UTC+0');
+  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const updateTime = () => {
@@ -54,14 +56,31 @@ export default function Navbar({ onReset, onStart }) {
           <span className="sys-clock">{timeStr}</span>
         </div>
 
+        {/* Audio FX Toggle */}
         <button 
           className="audio-cyber-btn"
           onClick={toggleSound}
           title={muted ? 'Enable sound effects' : 'Mute sound effects'}
           aria-label={muted ? 'Enable sound effects' : 'Mute sound effects'}
         >
-          {muted ? <VolumeX size={14} /> : <Volume2 size={14} color="#7c3aed" />}
+          {muted ? <VolumeX size={14} /> : <Volume2 size={14} color="var(--c-purple)" />}
           <span className="audio-btn-label">{muted ? 'MUTED' : 'AUDIO: ON'}</span>
+        </button>
+
+        {/* Dark / Light Mode Toggle */}
+        <button
+          id="theme-toggle-btn"
+          className="theme-cyber-btn"
+          onClick={toggleTheme}
+          title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+        >
+          {isDark ? (
+            <Sun size={14} className="theme-cyber-icon sun-icon" />
+          ) : (
+            <Moon size={14} className="theme-cyber-icon moon-icon" />
+          )}
+          <span className="theme-btn-label">{isDark ? 'THEME: DARK' : 'THEME: LIGHT'}</span>
         </button>
 
         <button className="btn-cyber-black nav-cta-btn" onClick={onStart}>
@@ -78,10 +97,13 @@ export default function Navbar({ onReset, onStart }) {
           justify-content: space-between;
           padding: 16px 36px;
           border-bottom: 1px solid var(--c-border);
-          background: #ffffff;
+          background: var(--c-navbar-bg);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
           position: sticky;
           top: 0;
           z-index: 100;
+          transition: background 0.35s ease, border-color 0.35s ease;
         }
 
         .nav-left {
@@ -100,21 +122,23 @@ export default function Navbar({ onReset, onStart }) {
         .pixel-mark {
           font-family: var(--font-mono);
           font-size: 1rem;
-          color: #ffffff;
-          background: var(--c-black);
+          color: var(--c-btn-black-text);
+          background: var(--c-btn-black-bg);
           width: 26px;
           height: 26px;
           display: flex;
           align-items: center;
           justify-content: center;
+          transition: background 0.35s ease, color 0.35s ease;
         }
 
         .brand-logo-text {
           font-family: var(--font-display);
           font-size: 1.55rem;
           letter-spacing: 0.05em;
-          color: var(--c-black);
+          color: var(--c-text-primary);
           line-height: 1;
+          transition: color 0.35s ease;
         }
 
         .brand-cursor {
@@ -133,7 +157,7 @@ export default function Navbar({ onReset, onStart }) {
         }
 
         .nav-sep {
-          color: #cbd5e1;
+          color: var(--c-border);
           font-weight: 400;
         }
 
@@ -149,7 +173,7 @@ export default function Navbar({ onReset, onStart }) {
         .nav-right {
           display: flex;
           align-items: center;
-          gap: 20px;
+          gap: 14px;
         }
 
         .sys-time-box {
@@ -158,6 +182,7 @@ export default function Navbar({ onReset, onStart }) {
           align-items: flex-end;
           font-family: var(--font-mono);
           line-height: 1.2;
+          margin-right: 4px;
         }
 
         .sys-label {
@@ -169,11 +194,13 @@ export default function Navbar({ onReset, onStart }) {
 
         .sys-clock {
           font-size: 0.78rem;
-          color: var(--c-black);
+          color: var(--c-text-primary);
           font-weight: 700;
+          transition: color 0.35s ease;
         }
 
-        .audio-cyber-btn {
+        .audio-cyber-btn,
+        .theme-cyber-btn {
           display: flex;
           align-items: center;
           gap: 6px;
@@ -185,11 +212,22 @@ export default function Navbar({ onReset, onStart }) {
           font-size: 0.72rem;
           font-weight: 700;
           cursor: pointer;
-          transition: border-color 0.15s;
+          transition: border-color 0.2s, background 0.35s, color 0.35s;
         }
 
-        .audio-cyber-btn:hover {
-          border-color: var(--c-black);
+        .audio-cyber-btn:hover,
+        .theme-cyber-btn:hover {
+          border-color: var(--c-purple);
+          color: var(--c-purple);
+          background: var(--c-purple-bg);
+        }
+
+        .sun-icon {
+          color: var(--c-lime);
+        }
+
+        .moon-icon {
+          color: var(--c-purple);
         }
 
         .nav-cta-btn {
@@ -222,7 +260,7 @@ export default function Navbar({ onReset, onStart }) {
             min-width: 0;
           }
           .nav-right {
-            gap: 8px;
+            gap: 6px;
             min-width: 0;
           }
           .brand-logo-text {
@@ -233,7 +271,8 @@ export default function Navbar({ onReset, onStart }) {
             height: 22px;
             font-size: 0.85rem;
           }
-          .audio-cyber-btn {
+          .audio-cyber-btn,
+          .theme-cyber-btn {
             padding: 7px 10px;
             font-size: 0.68rem;
           }
@@ -244,11 +283,13 @@ export default function Navbar({ onReset, onStart }) {
           }
         }
 
-        @media (max-width: 440px) {
-          .audio-btn-label {
+        @media (max-width: 480px) {
+          .audio-btn-label,
+          .theme-btn-label {
             display: none;
           }
-          .audio-cyber-btn {
+          .audio-cyber-btn,
+          .theme-cyber-btn {
             padding: 7px 8px;
           }
           .cta-full {

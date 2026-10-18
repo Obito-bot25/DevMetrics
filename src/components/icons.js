@@ -16,3 +16,5 @@ export { default as Box } from 'lucide-react/dist/esm/icons/box.mjs';
 export { default as Database } from 'lucide-react/dist/esm/icons/database.mjs';
 export { default as Crosshair } from 'lucide-react/dist/esm/icons/crosshair.mjs';
 export { default as Globe } from 'lucide-react/dist/esm/icons/globe.mjs';
+export { default as Sun } from 'lucide-react/dist/esm/icons/sun.mjs';
+export { default as Moon } from 'lucide-react/dist/esm/icons/moon.mjs';

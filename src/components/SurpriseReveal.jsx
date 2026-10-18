@@ -123,20 +123,21 @@ export default function SurpriseReveal({ resultData, onProceedToCertificate }) {
 
         /* Deadpan Phase */
         .deadpan-cyber-box {
-          background: #ffffff;
-          border: 1px solid var(--c-black);
+          background: var(--c-surface);
+          border: 1px solid var(--c-border-dark);
           padding: 48px 36px;
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 16px;
-          box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.08);
+          box-shadow: var(--c-card-shadow);
+          transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
         }
 
         .deadpan-title {
           font-family: var(--font-display);
           font-size: clamp(2.8rem, 5vw, 4.4rem);
-          color: var(--c-black);
+          color: var(--c-text-primary);
           line-height: 1;
         }
 
@@ -144,11 +145,12 @@ export default function SurpriseReveal({ resultData, onProceedToCertificate }) {
           display: flex;
           align-items: center;
           gap: 8px;
-          border: 1px solid var(--c-black);
-          background: var(--c-bg);
+          border: 1px solid var(--c-border-dark);
+          background: var(--c-input-bg);
           padding: 8px 16px;
           font-family: var(--font-mono);
           font-size: 0.88rem;
+          transition: background 0.35s ease, border-color 0.35s ease;
         }
 
         .subject-label {
@@ -187,18 +189,19 @@ export default function SurpriseReveal({ resultData, onProceedToCertificate }) {
         }
 
         .user-highlight {
-          color: var(--c-black);
+          color: var(--c-text-primary);
           border-bottom: 2px solid var(--c-purple);
         }
 
         /* Punchline Card */
         .cyber-punchline-card {
-          background: #ffffff;
-          border: 2px solid var(--c-black);
+          background: var(--c-surface);
+          border: 2px solid var(--c-border-dark);
           padding: 40px 32px;
           width: 100%;
-          box-shadow: 6px 6px 0px var(--c-black);
+          box-shadow: 6px 6px 0px var(--c-border-dark);
           margin-bottom: 32px;
+          transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
         }
 
         .punchline-pre {
@@ -213,7 +216,7 @@ export default function SurpriseReveal({ resultData, onProceedToCertificate }) {
         .punchline-cyber-title {
           font-family: var(--font-display);
           font-size: clamp(2.1rem, 7.5vw, 5.8rem);
-          color: var(--c-black);
+          color: var(--c-text-primary);
           line-height: 0.95;
           margin-bottom: 16px;
           letter-spacing: 0.02em;
@@ -254,7 +257,7 @@ export default function SurpriseReveal({ resultData, onProceedToCertificate }) {
         }
 
         .reveal-tel-card {
-          background: #ffffff;
+          background: var(--c-surface);
           border: 1px solid var(--c-border);
           padding: 16px;
           display: flex;
@@ -262,6 +265,7 @@ export default function SurpriseReveal({ resultData, onProceedToCertificate }) {
           align-items: flex-start;
           text-align: left;
           min-width: 0;
+          transition: background 0.35s ease, border-color 0.35s ease;
         }
 
         .tel-card-label {
@@ -277,7 +281,7 @@ export default function SurpriseReveal({ resultData, onProceedToCertificate }) {
           font-family: var(--font-mono);
           font-size: 1.15rem;
           font-weight: 700;
-          color: var(--c-black);
+          color: var(--c-text-primary);
           word-break: break-word;
           overflow-wrap: break-word;
         }
@@ -294,11 +298,15 @@ export default function SurpriseReveal({ resultData, onProceedToCertificate }) {
         .claim-dossier-btn {
           font-size: 1rem;
           padding: 18px 48px;
-          background: var(--c-black);
+          background: var(--c-btn-primary-bg);
+          color: var(--c-btn-primary-text);
+          border: 1px solid var(--c-btn-primary-border);
         }
 
-        .claim-dossier-btn:hover {
-          background: var(--c-purple);
+        .claim-dossier-btn:hover:not(:disabled) {
+          background: var(--c-btn-primary-hover-bg);
+          border-color: var(--c-btn-primary-hover-border);
+          color: var(--c-btn-primary-hover-text);
         }
 
         @media (max-width: 640px) {
@@ -313,7 +321,7 @@ export default function SurpriseReveal({ resultData, onProceedToCertificate }) {
           }
           .cyber-punchline-card {
             padding: 22px 14px;
-            box-shadow: 3px 3px 0px var(--c-black);
+            box-shadow: 3px 3px 0px var(--c-border-dark);
             margin-bottom: 24px;
           }
           .claim-dossier-btn {

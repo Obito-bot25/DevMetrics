@@ -146,7 +146,7 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
 
             <div className="cyber-field">
               <label className="cyber-label" htmlFor="dev-name">
-                <Terminal size={14} color="#7c3aed" />
+                <Terminal size={14} color="var(--c-purple)" />
                 <span>CANDIDATE_NAME // GITHUB_HANDLE</span>
               </label>
               <div className="input-bracket-wrapper">
@@ -474,8 +474,9 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           font-family: var(--font-mono);
           font-size: 0.78rem;
           font-weight: 700;
-          color: var(--c-text-muted);
+          color: var(--c-text-secondary);
           cursor: pointer;
+          transition: color 0.15s ease;
         }
 
         .flow-back-btn:hover {
@@ -497,10 +498,11 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
         }
 
         .cyber-audit-card {
-          background: #ffffff;
-          border: 1px solid var(--c-black);
+          background: var(--c-surface);
+          border: 1px solid var(--c-border-dark);
           padding: 40px;
-          box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.08);
+          box-shadow: var(--c-card-shadow);
+          transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
         }
 
         .audit-header {
@@ -513,7 +515,7 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           font-family: var(--font-display);
           font-size: clamp(2rem, 4vw, 2.8rem);
           font-weight: 400;
-          color: var(--c-black);
+          color: var(--c-text-primary);
           line-height: 1;
           margin-top: 6px;
         }
@@ -544,9 +546,10 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
         .input-bracket-wrapper {
           display: flex;
           align-items: center;
-          border: 1px solid var(--c-black);
-          background: var(--c-bg);
+          border: 1px solid var(--c-border-dark);
+          background: var(--c-input-bg);
           padding: 0 16px;
+          transition: background 0.35s ease, border-color 0.35s ease;
         }
 
         .input-prompt {
@@ -566,7 +569,7 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           font-family: var(--font-mono);
           font-size: 1.05rem;
           font-weight: 700;
-          color: var(--c-black);
+          color: var(--c-text-primary);
           outline: none;
         }
 
@@ -589,19 +592,19 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           align-items: flex-start;
           gap: 12px;
           padding: 14px;
-          background: #ffffff;
+          background: var(--c-surface);
           border: 1px solid var(--c-border);
           text-align: left;
           cursor: pointer;
-          transition: all 0.15s;
+          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease;
         }
 
         .exp-tier-card:hover {
-          border-color: var(--c-black);
+          border-color: var(--c-purple);
         }
 
         .exp-tier-card.active {
-          border-color: var(--c-black);
+          border-color: var(--c-purple);
           background: var(--c-purple-bg);
           box-shadow: 2px 2px 0px var(--c-purple);
         }
@@ -609,7 +612,7 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
         .tier-radio {
           width: 14px;
           height: 14px;
-          border: 1.5px solid var(--c-black);
+          border: 1.5px solid var(--c-border-dark);
           margin-top: 3px;
           display: flex;
           align-items: center;
@@ -628,12 +631,12 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           font-family: var(--font-mono);
           font-weight: 700;
           font-size: 0.88rem;
-          color: var(--c-black);
+          color: var(--c-text-primary);
         }
 
         .tier-sub {
           font-size: 0.76rem;
-          color: var(--c-text-muted);
+          color: var(--c-text-secondary);
           line-height: 1.35;
         }
 
@@ -646,22 +649,22 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
         }
 
         .cyber-tool-card {
-          background: #ffffff;
+          background: var(--c-surface);
           border: 1px solid var(--c-border);
           padding: 16px;
           display: flex;
           flex-direction: column;
           text-align: left;
           cursor: pointer;
-          transition: all 0.15s;
+          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease;
         }
 
         .cyber-tool-card:hover {
-          border-color: var(--c-black);
+          border-color: var(--c-purple);
         }
 
         .cyber-tool-card.active {
-          border-color: var(--c-black);
+          border-color: var(--c-purple);
           background: var(--c-purple-bg);
           box-shadow: 2px 2px 0px var(--c-purple);
         }
@@ -689,13 +692,13 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           font-family: var(--font-mono);
           font-weight: 700;
           font-size: 0.9rem;
-          color: var(--c-black);
+          color: var(--c-text-primary);
           margin-bottom: 4px;
         }
 
         .tool-vibe {
           font-size: 0.72rem;
-          color: var(--c-text-muted);
+          color: var(--c-text-secondary);
           line-height: 1.35;
         }
 
@@ -723,7 +726,7 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           font-family: var(--font-sans);
           font-size: 0.95rem;
           font-weight: 700;
-          color: var(--c-black);
+          color: var(--c-text-primary);
         }
 
         .dropdown-trigger-input {
@@ -740,13 +743,13 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
         }
 
         .dropdown-trigger-input:hover {
-          border-color: var(--c-black);
-          background: #ffffff;
+          border-color: var(--c-purple);
+          background: var(--c-surface);
         }
 
         .dropdown-trigger-input.is-open {
           border-color: var(--c-purple);
-          background: #ffffff;
+          background: var(--c-surface);
           box-shadow: 0 0 0 1px var(--c-purple);
         }
 
@@ -772,14 +775,14 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           font-family: var(--font-mono);
           font-size: 0.9rem;
           font-weight: 700;
-          color: var(--c-black);
+          color: var(--c-text-primary);
           overflow-wrap: break-word;
           word-break: break-word;
         }
 
         .trigger-sub {
           font-size: 0.8rem;
-          color: var(--c-text-muted);
+          color: var(--c-text-secondary);
           overflow-wrap: break-word;
           word-break: break-word;
         }
@@ -795,13 +798,14 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           top: 100%;
           left: 0;
           width: 100%;
-          background: #ffffff;
-          border: 1.5px solid var(--c-black);
-          box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+          background: var(--c-surface);
+          border: 1.5px solid var(--c-border-dark);
+          box-shadow: var(--c-card-shadow);
           z-index: 50;
           margin-top: 4px;
           max-height: 380px;
           overflow-y: auto;
+          transition: background 0.35s ease, border-color 0.35s ease;
         }
 
         .dropdown-popover-header {
@@ -855,7 +859,7 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
           font-family: var(--font-mono);
           font-weight: 700;
           font-size: 0.85rem;
-          color: var(--c-black);
+          color: var(--c-text-primary);
           overflow-wrap: break-word;
           word-break: break-word;
         }
@@ -878,11 +882,15 @@ export default function AssessmentFlow({ onComplete, onCancel }) {
         }
 
         .submit-final-btn {
-          background: var(--c-black);
+          background: var(--c-btn-primary-bg);
+          color: var(--c-btn-primary-text);
+          border: 1px solid var(--c-btn-primary-border);
         }
 
         .submit-final-btn:hover {
-          background: var(--c-purple);
+          background: var(--c-btn-primary-hover-bg);
+          border-color: var(--c-btn-primary-hover-border);
+          color: var(--c-btn-primary-hover-text);
         }
 
         @media (max-width: 900px) {

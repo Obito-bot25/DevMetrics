@@ -225,12 +225,22 @@ const Certificate = forwardRef(({ resultData }, ref) => {
         }
 
         .certificate-sheet {
+          --c-black: #0a0a0a;
+          --c-border: #e2e4ea;
+          --c-border-dark: #0a0a0a;
+          --c-text-primary: #0a0a0a;
+          --c-text-secondary: #475569;
+          --c-text-muted: #64748b;
+          --c-surface: #ffffff;
+          --c-bg: #f7f7f9;
+          --c-hatch-line: rgba(0, 0, 0, 0.12);
           width: 860px;
           min-width: 860px;
           background: #ffffff;
-          color: var(--c-black);
+          color: #0a0a0a;
           position: relative;
-          box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.12);
+          box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.35);
+          transition: box-shadow 0.35s ease;
         }
 
         .sheet-outer-border {

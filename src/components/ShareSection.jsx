@@ -91,7 +91,7 @@ export default function ShareSection({ certificateRef, resultData, onReset }) {
           className="btn-cyber-outline share-act-btn"
           onClick={handleCopyLink}
         >
-          {copied ? <Check size={16} color="#7c3aed" /> : <Copy size={16} />}
+          {copied ? <Check size={16} color="var(--c-purple)" /> : <Copy size={16} />}
           <span>{copied ? 'SPOILER LINK COPIED!' : 'COPY SPOILER-FREE LINK [ ]'}</span>
         </button>
 
@@ -180,9 +180,10 @@ export default function ShareSection({ certificateRef, resultData, onReset }) {
           align-items: center;
           justify-content: space-between;
           width: 100%;
-          background: #ffffff;
+          background: var(--c-surface);
           border: 1px solid var(--c-border);
           padding: 14px 20px;
+          transition: background 0.35s ease, border-color 0.35s ease;
         }
 
         .social-kicker {
@@ -203,10 +204,11 @@ export default function ShareSection({ certificateRef, resultData, onReset }) {
           font-family: var(--font-mono);
           font-size: 0.78rem;
           font-weight: 700;
-          color: var(--c-black);
+          color: var(--c-text-primary);
           text-decoration: none;
           padding: 6px 10px;
           border: 1px solid var(--c-border);
+          background: var(--c-surface-subtle);
           transition: all 0.15s;
         }
 
@@ -234,9 +236,10 @@ export default function ShareSection({ certificateRef, resultData, onReset }) {
           font-family: var(--font-mono);
           font-size: clamp(0.7rem, 3vw, 0.78rem);
           font-weight: 700;
-          color: var(--c-text-muted);
+          color: var(--c-text-secondary);
           cursor: pointer;
           line-height: 1.4;
+          transition: color 0.15s ease;
         }
 
         .reset-text-btn:hover {
@@ -247,9 +250,9 @@ export default function ShareSection({ certificateRef, resultData, onReset }) {
           display: flex;
           align-items: center;
           gap: 8px;
-          background: #fee2e2;
-          border: 1px solid #ef4444;
-          color: #b91c1c;
+          background: var(--c-purple-bg);
+          border: 1px solid var(--c-red);
+          color: var(--c-red);
           padding: 8px 16px;
           font-family: var(--font-mono);
           font-size: 0.75rem;

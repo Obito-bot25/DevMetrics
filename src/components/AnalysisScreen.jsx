@@ -69,7 +69,7 @@ export default function AnalysisScreen({ onComplete }) {
           <div className="scanner-line-cross-v"></div>
           <div className="scanner-sweep-needle"></div>
           <div className="scanner-center-hub">
-            <Cpu size={24} color="#7c3aed" />
+            <Cpu size={24} color="var(--c-purple)" />
           </div>
 
           <div className="cyber-sticky-tag scanner-tag">
@@ -101,7 +101,7 @@ export default function AnalysisScreen({ onComplete }) {
         {/* Terminal Log Stream */}
         <div className="cyber-terminal-stream">
           <div className="stream-header">
-            <Terminal size={12} color="#7c3aed" />
+            <Terminal size={12} color="var(--c-purple)" />
             <span>TELEMETRY_LOG_OUTPUT</span>
           </div>
           <div className="stream-body">
@@ -130,14 +130,15 @@ export default function AnalysisScreen({ onComplete }) {
         }
 
         .analysis-box {
-          background: #ffffff;
-          border: 1px solid var(--c-black);
+          background: var(--c-surface);
+          border: 1px solid var(--c-border-dark);
           padding: 36px;
           display: flex;
           flex-direction: column;
           align-items: center;
           text-align: center;
-          box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.08);
+          box-shadow: var(--c-card-shadow);
+          transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
         }
 
         .analysis-top-row {
@@ -154,7 +155,7 @@ export default function AnalysisScreen({ onComplete }) {
           font-family: var(--font-mono);
           font-size: 0.78rem;
           font-weight: 700;
-          color: var(--c-black);
+          color: var(--c-text-primary);
           letter-spacing: 0.08em;
         }
 
@@ -222,11 +223,12 @@ export default function AnalysisScreen({ onComplete }) {
           z-index: 2;
           width: 44px;
           height: 44px;
-          background: #ffffff;
-          border: 1px solid var(--c-black);
+          background: var(--c-surface);
+          border: 1px solid var(--c-border-dark);
           display: flex;
           align-items: center;
           justify-content: center;
+          transition: background 0.35s ease, border-color 0.35s ease;
         }
 
         .scanner-tag {
@@ -244,7 +246,7 @@ export default function AnalysisScreen({ onComplete }) {
           font-family: var(--font-mono);
           font-size: 1.05rem;
           font-weight: 700;
-          color: var(--c-black);
+          color: var(--c-text-primary);
           margin-bottom: 4px;
           min-height: 28px;
         }
@@ -281,7 +283,7 @@ export default function AnalysisScreen({ onComplete }) {
         .progress-track-border {
           width: 100%;
           height: 8px;
-          border: 1px solid var(--c-black);
+          border: 1px solid var(--c-border-dark);
           background: var(--c-bg);
           overflow: hidden;
         }

@@ -163,8 +163,9 @@ export default function App() {
           width: 100%;
           border-top: 1px solid var(--c-border);
           border-bottom: 1px solid var(--c-border);
-          background: #ffffff;
+          background: var(--c-surface);
           padding: 20px 36px;
+          transition: background 0.35s ease, border-color 0.35s ease;
         }
 
         .trusted-content {
@@ -195,7 +196,7 @@ export default function App() {
           font-family: var(--font-mono);
           font-size: 0.8rem;
           font-weight: 700;
-          color: var(--c-black);
+          color: var(--c-text-primary);
           letter-spacing: 0.04em;
           opacity: 0.85;
         }

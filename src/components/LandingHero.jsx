@@ -134,7 +134,7 @@ export default function LandingHero({ onStart }) {
           
           <div className="principle-card">
             <div className="principle-top">
-              <Box size={20} color="#7c3aed" aria-hidden="true" />
+              <Box size={20} color="var(--c-purple)" aria-hidden="true" />
               <span className="crosshair">+</span>
             </div>
             <h3 className="principle-name">FUNCTION OVER PROMPT</h3>
@@ -143,7 +143,7 @@ export default function LandingHero({ onStart }) {
 
           <div className="principle-card">
             <div className="principle-top">
-              <Terminal size={20} color="#7c3aed" aria-hidden="true" />
+              <Terminal size={20} color="var(--c-purple)" aria-hidden="true" />
               <span className="crosshair">+</span>
             </div>
             <h3 className="principle-name">SYSTEMS THINKING</h3>
@@ -152,7 +152,7 @@ export default function LandingHero({ onStart }) {
 
           <div className="principle-card">
             <div className="principle-top">
-              <Cpu size={20} color="#7c3aed" aria-hidden="true" />
+              <Cpu size={20} color="var(--c-purple)" aria-hidden="true" />
               <span className="crosshair">+</span>
             </div>
             <h3 className="principle-name">SYNTHETIC DETOX</h3>
@@ -161,7 +161,7 @@ export default function LandingHero({ onStart }) {
 
           <div className="principle-card">
             <div className="principle-top">
-              <Crosshair size={20} color="#7c3aed" aria-hidden="true" />
+              <Crosshair size={20} color="var(--c-purple)" aria-hidden="true" />
               <span className="crosshair">+</span>
             </div>
             <h3 className="principle-name">BOLD CONTRAST</h3>
@@ -170,7 +170,7 @@ export default function LandingHero({ onStart }) {
 
           <div className="principle-card">
             <div className="principle-top">
-              <Database size={20} color="#7c3aed" aria-hidden="true" />
+              <Database size={20} color="var(--c-purple)" aria-hidden="true" />
               <span className="crosshair">+</span>
             </div>
             <h3 className="principle-name">RAW & AUTHENTIC</h3>
@@ -400,7 +400,7 @@ export default function LandingHero({ onStart }) {
         }
 
         .pipe-sep {
-          color: #cbd5e1;
+          color: var(--c-border);
         }
 
         .hurt-text {
@@ -411,13 +411,14 @@ export default function LandingHero({ onStart }) {
         /* Right Visual Box */
         .hero-right-visual {
           border: 1px solid var(--c-border);
-          background: #ffffff;
+          background: var(--c-surface);
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           padding: 24px;
           position: relative;
           min-width: 0;
+          transition: background 0.35s ease, border-color 0.35s ease;
         }
 
         .visual-top-meta {
@@ -462,8 +463,9 @@ export default function LandingHero({ onStart }) {
           position: absolute;
           width: 130px;
           height: 130px;
-          border: 1.5px solid var(--c-black);
-          background: rgba(255, 255, 255, 0.65);
+          border: 1.5px solid var(--c-border-dark);
+          background: var(--c-cube-face);
+          transition: background 0.35s ease, border-color 0.35s ease;
         }
 
         .face-front  { transform: translateZ(65px); }
@@ -555,12 +557,12 @@ export default function LandingHero({ onStart }) {
         }
 
         .principle-card {
-          background: #ffffff;
+          background: var(--c-surface);
           border: 1px solid var(--c-border);
           padding: 20px 16px;
           display: flex;
           flex-direction: column;
-          transition: border-color 0.15s;
+          transition: border-color 0.15s, background 0.35s ease;
         }
 
         .principle-card:hover {
@@ -599,9 +601,10 @@ export default function LandingHero({ onStart }) {
         .telemetry-col {
           padding: 32px 28px;
           border-right: 1px solid var(--c-border);
-          background: #ffffff;
+          background: var(--c-surface);
           display: flex;
           flex-direction: column;
+          transition: background 0.35s ease, border-color 0.35s ease;
         }
 
         .telemetry-col:last-child {
@@ -663,7 +666,7 @@ export default function LandingHero({ onStart }) {
         .metric-bar-wrapper {
           flex: 1;
           height: 6px;
-          background: #e2e4ea;
+          background: var(--c-border);
           margin: 0 16px;
         }
 
@@ -689,7 +692,7 @@ export default function LandingHero({ onStart }) {
         .all-operational-banner {
           margin-top: 16px;
           background: var(--c-lime);
-          border: 1px solid var(--c-black);
+          border: 1px solid #0a0a0a;
           padding: 8px 14px;
           display: flex;
           align-items: center;
@@ -697,7 +700,7 @@ export default function LandingHero({ onStart }) {
           font-family: var(--font-mono);
           font-size: 0.75rem;
           font-weight: 700;
-          color: var(--c-black);
+          color: #0a0a0a;
           letter-spacing: 0.05em;
         }
 
@@ -724,14 +727,15 @@ export default function LandingHero({ onStart }) {
         .hatch-content {
           position: relative;
           z-index: 2;
-          background: #ffffff;
-          border: 1px solid var(--c-black);
+          background: var(--c-surface);
+          border: 1px solid var(--c-border-dark);
           padding: 8px 14px;
           display: flex;
           flex-direction: column;
           font-family: var(--font-mono);
           font-size: 0.72rem;
           line-height: 1.3;
+          transition: background 0.35s ease, border-color 0.35s ease;
         }
 
         .hatch-code {
